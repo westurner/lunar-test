@@ -4,7 +4,7 @@
 -- Haha.
 
 -- written by me and gpt5 (i was too lazy)
--- Roblox house builder: only Parts + Position + Color + Size (no rotation)
+-- House builder: only Parts + Position + Color + Size (no rotation)
 -- Two floors, stairs, roof, porch, fence, simple furniture
 
 -- we dont need that (we will add waitforchild asap)

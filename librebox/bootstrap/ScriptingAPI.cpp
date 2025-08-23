@@ -202,7 +202,6 @@ static int l_instance_tostring(lua_State* L) {
     }
     auto inst = *inst_ptr;
     std::string s = inst->GetClassName();
-    // Uncomment if you want Roblox alias:
     // if (s == "Game") s = "DataModel";
     lua_pushlstring(L, s.c_str(), s.size());
     return 1;

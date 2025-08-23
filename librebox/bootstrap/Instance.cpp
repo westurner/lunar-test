@@ -224,7 +224,7 @@ bool Instance::IsA(const std::string& className) const {
             if (className == "BaseScript" || className == "LuaSourceContainer") return true;
             break;
         case InstanceClass::Game:
-            if (className == "DataModel") return true; 
+            if (className == "DataModel") return true; // Roblox alias
             break;
         default:
             break;
