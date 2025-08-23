@@ -55,7 +55,7 @@ end)
 > ./LibreboxPlayer.exe examples/part_example.lua
 ```
 <img src="repo/example3.gif" alt="Demo gif" width="256"/>
-The snippet is compatible.
+The snippet is fully compatible.
 
 ### Compatibility
 
