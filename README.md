@@ -104,7 +104,7 @@ Librebox is currently in demo stage (it implements a limited subset of the Roblo
 **NOTE:** Librebox **DOES NOT** use any Roblox source code or assets. It simply replicates the environment used to run games. We will provide open assets in the future.
 
 ### Download
-[Download releases here.](https://github.com/librebox-dev/librebox-demo/releases)
+[Download releases here.](https://github.com/librebox-devs/librebox-demo/releases)
 
 ### To Be Added
 
