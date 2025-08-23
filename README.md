@@ -172,5 +172,8 @@ This project uses:
 ### Legal Notice
 > Librebox is an independent open source project. It is not affiliated with, endorsed by, or sponsored by Roblox Corporation. “Roblox” and “Roblox Corporation” are trademarks of Roblox Corporation. References to the Roblox Public API and compatibility are for interoperability only. Librebox uses no Roblox source code, assets, or other proprietary materials.
 
+### Contact
+You can send requests or questions at ``librebox.developers@gmail.com``.
+
 ---
 ##### "LIBREBOX IS JUST AN ENVIRONMENT"
