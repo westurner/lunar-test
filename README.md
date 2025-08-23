@@ -1,4 +1,4 @@
-How is the motto "Librebox is just an environment" "# Librebox Engine (demo)
+# Librebox Engine (demo)
 <div style="display:flex; align-items:center; gap:20px; margin:10px 0;">
   <a href="https://discord.gg/PsYPR9b5" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white&style=for-the-badge" alt="Discord"/>
@@ -173,4 +173,4 @@ This project uses:
 > Librebox is an independent open source project. It is not affiliated with, endorsed by, or sponsored by Roblox Corporation. “Roblox” and “Roblox Corporation” are trademarks of Roblox Corporation. References to the Roblox Public API and compatibility are for interoperability only. Librebox uses no Roblox source code, assets, or other proprietary materials.
 
 ---
-##### "LIBREBOX IS JUST AN ENVIRONMENT""
+##### "LIBREBOX IS JUST AN ENVIRONMENT"
