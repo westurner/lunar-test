@@ -13,7 +13,7 @@
   <img src="repo/LibreboxLogo.png" alt="Alt text" width="350"/>
 </p>
 
-## Open-source game engine with Luau scripting
+## Open-source Luau 3D engine with interoperable API
 
 <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:10px;">
   <img src="repo/example2.gif" alt="Demo gif" width="256"/>
