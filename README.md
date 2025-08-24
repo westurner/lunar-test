@@ -13,7 +13,7 @@
   <img src="repo/LibreboxLogo.png" alt="Alt text" width="350"/>
 </p>
 
-## An open-source Roblox-compatible game engine
+## Open-source game engine with Luau scripting
 
 <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:10px;">
   <img src="repo/example2.gif" alt="Demo gif" width="256"/>
@@ -23,13 +23,11 @@
 </div>
 <img src="repo/example6.gif" alt="Demo gif" width="256"/>
 
-> **NOTE:** Librebox **IS NOT AFFILIATED** WITH Roblox or Roblox Corporation.
-
 ### What is Librebox?
-Librebox is an open-source game engine that runs Luau. It aims to replicate the Roblox Public API, allowing Roblox code to run on the Librebox engine.
+Librebox is an open-source game engine that runs Luau. It provides an API and development model inspired by popular sandbox engines, allowing existing Luau code to run with minimal changes.
 
 ### Why Librebox?
-Librebox gives developers agency over their games -- from the code to the engine. Create your own immersive games with a familiar interface (and fully own your platform). 
+Librebox gives developers full agency over their games - from the code to the engine. Build immersive experiences with a familiar interface while maintaining complete ownership of your platform.
 
 ### Example
 
@@ -55,11 +53,10 @@ end)
 > ./LibreboxPlayer.exe examples/part_example.lua
 ```
 <img src="repo/example3.gif" alt="Demo gif" width="256"/>
-The snippet is fully compatible.
 
 ### Compatibility
 
-Librebox is currently in demo stage (it implements a limited subset of the Roblox API), but here is what is supported:
+Librebox is currently in demo stage (it implements a limited subset of its planned API), but here is what is supported:
 
 - Basic scene rendering
   - Lighting, shadows, ambient, skybox
@@ -100,8 +97,6 @@ Librebox is currently in demo stage (it implements a limited subset of the Roblo
   - Luau optimization enabled by default
 - Window handling and fullscreen optimization
 ---
-
-**NOTE:** Librebox **DOES NOT** use any Roblox source code or assets. It simply replicates the environment used to run games. We will provide open assets in the future.
 
 ### Download
 [Download releases here.](https://github.com/librebox-devs/librebox-demo/releases)
@@ -170,7 +165,7 @@ This project uses:
   Copyright (c) 2013-2025 Ramon Santamaria and contributors.
 
 ### Legal Notice
-> Librebox is an independent open source project. It is not affiliated with, endorsed by, or sponsored by Roblox Corporation. “Roblox” and “Roblox Corporation” are trademarks of Roblox Corporation. References to the Roblox Public API and compatibility are for interoperability only. Librebox uses no Roblox source code, assets, or other proprietary materials.
+> Librebox is an independent open-source project. It is not affiliated with or sponsored by any commercial platform. All names and references are for interoperability only. Librebox uses no third-party source code, assets, or proprietary materials.
 
 ### Contact
 You can send requests or questions at ``librebox.developers@gmail.com``.
