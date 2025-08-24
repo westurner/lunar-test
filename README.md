@@ -24,7 +24,7 @@
 <img src="repo/example6.gif" alt="Demo gif" width="256"/>
 
 ### What is Librebox?
-Librebox is an open-source game engine that runs Luau. It provides an API and development model inspired by popular sandbox engines, allowing existing Luau code to run with minimal changes.
+Librebox is an open-source game engine powered by Luau. It delivers a sandbox-style API and development model inspired by popular sandbox engines, so existing Luau code runs with minimal changes.
 
 ### Why Librebox?
 Librebox gives developers full agency over their games - from the code to the engine. Build immersive experiences with a familiar interface while maintaining complete ownership of your platform.
