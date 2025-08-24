@@ -6,7 +6,6 @@
 print("CRASHING APPLICATION IN 3 SECONDS!")
 task.wait(3)
 
--- Librebox uses optimizationLevel=1 for Luau scripts
 -- Having an empty while loop may be removed
 -- by the Luau bytecode compiler 
 x = 0
