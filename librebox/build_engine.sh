@@ -52,7 +52,7 @@ fi
 
 echo
 echo "[4/4] Installing to 'dist'..."
-cmake --install . --prefix "${DIST_DIR}" --config "${CMAKE_BUILD_TYPE}"
+DESTDIR="$DIST_DIR" cmake --install . --config "${CMAKE_BUILD_TYPE}"
 if [ $? -ne 0 ]; then
     echo
     echo "[ERROR] Installation failed."
