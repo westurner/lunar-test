@@ -1,4 +1,4 @@
-# Librebox Engine (demo)
+# Lunar Engine (demo)
 <div style="display:flex; align-items:center; gap:20px; margin:10px 0;">
   <a href="https://discord.gg/N66awhg7" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white&style=for-the-badge" alt="Discord"/>
@@ -23,11 +23,11 @@
 </div>
 <img src="repo/example6.gif" alt="Demo gif" width="256"/>
 
-### What is Librebox?
-Librebox is an open-source game engine powered by Luau. It delivers a sandbox-style API and development model inspired by popular sandbox engines, so existing Luau code runs with minimal changes.
+### What is Lunar Engine?
+Lunar Engine is an open-source game engine powered by Luau. It delivers a sandbox-style API and development model inspired by popular sandbox engines, so existing Luau code runs with minimal changes.
 
-### Why Librebox?
-Librebox gives developers full agency over their games - from the code to the engine. Build immersive experiences with a familiar interface while maintaining complete ownership of your platform.
+### Why Lunar Engine?
+Lunar Engine gives developers full agency over their games - from the code to the engine. Build immersive experiences with a familiar interface while maintaining complete ownership of your platform.
 
 ### Example
 
@@ -56,7 +56,7 @@ end)
 
 ### Compatibility
 
-Librebox is currently in demo stage (it implements a limited subset of its planned API), but here is what is supported:
+Lunar Engine is currently in demo stage (it implements a limited subset of its planned API), but here is what is supported:
 
 - Basic scene rendering
   - Lighting, shadows, ambient, skybox
@@ -103,19 +103,19 @@ Librebox is currently in demo stage (it implements a limited subset of its plann
 
 ### To Be Added
 
-Of course, this is just a rendering demo. Librebox is extensible and easily supports the additions of new services and features. 
+Of course, this is just a rendering demo. Lunar Engine is extensible and easily supports the additions of new services and features. 
 
 In the next release, we will incorporate `UserInputService` and `StarterPlayer`, turning Librebox into an actual interactive engine.
 
 ### Platforms
-Librebox currently supports Windows, but **can easily be ported anywhere**. The only dependencies are 'raylib' -- and raylib is already cross-platform.
+Lunar Engine currently supports Windows, but **can easily be ported anywhere**. The only dependencies are 'raylib' -- and raylib is already cross-platform.
 
 * Windows 7+ (`.exe`)
   * Standalone executable (LibreboxPlayer.exe)
   
 ### Future Support
 
-Right now, Librebox compatibility is limited. This is currently a demo (not even a release!). In future releases, you can expect the following:
+Right now, Lunar Engine compatibility is limited. This is currently a demo (not even a release!). In future releases, you can expect the following:
 
 * Physics
   * Collision events, aspects
@@ -131,20 +131,20 @@ And, in the future.
 
 Librebox is on its way to becoming a fully fledged engine -- just like Godot, or Unity, you can transfer your current Lua skills into Librebox, and create **games you own.**
 
-### The future of Librebox
+### The future of Lunar Engine
 
 In future releases, it could be entirely possible to:
 
-* Create a game within the Librebox Editor (assets and scripts)
-* Deploy a Librebox server (just like a Minecraft server)
+* Create a game within the Lunar Editor (assets and scripts)
+* Deploy a Lunar server (just like a Minecraft server)
 * Implement your own monetization
 * Get the full user experience, and professional game development
   * No platform dependency
 * Use your own APIs or rewrite the source code
 
-This is entirely feasible, and, in fact, a good point for the existence of Librebox. However, what we'd like to implement first is full client compatiblity (proper rendering, APIs). Then, this makes it easier to move on to servers.
+This is entirely feasible, and, in fact, a good point for the existence of Lunar Engine. However, what we'd like to implement first is full client compatiblity (proper rendering, APIs). Then, this makes it easier to move on to servers.
 
-And best of all, it is copyright free and open source (Librebox is just an environment.) 
+And best of all, it is copyright free and open source (Lunar Engine is just an environment.) 
 
 ### Usage and Documentation
 
@@ -165,10 +165,10 @@ This project uses:
   Copyright (c) 2013-2025 Ramon Santamaria and contributors.
 
 ### Legal Notice
-> Librebox is an independent open-source project. It is not affiliated with or sponsored by any commercial platform. All names and references are for interoperability only. Librebox uses no third-party source code, assets, or proprietary materials.
+> Lunar Engine is an independent open-source project. It is not affiliated with or sponsored by any commercial platform. All names and references are for interoperability only. Librebox uses no third-party source code, assets, or proprietary materials.
 
 ### Contact
 You can send requests or questions at ``librebox.developers@gmail.com``.
 
 ---
-##### "LIBREBOX IS JUST AN ENVIRONMENT"
+##### "LUNARENGINE IS JUST AN ENVIRONMENT"
