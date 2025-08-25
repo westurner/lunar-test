@@ -63,9 +63,11 @@ void Game::Init() {
 void Game::Shutdown() {
     LOGI("Game::Shutdown begin");
 
-    if (g_game) {
-        g_game->Destroy();
-    }
+    // Skip g_game->Destroy() to avoid a double free
+    // 
+    // if (g_game) {
+    //     g_game->Destroy();
+    // }
 
     luaScheduler.reset();
     LOGI("Game::Shutdown end");
