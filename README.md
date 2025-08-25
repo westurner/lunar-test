@@ -50,7 +50,7 @@ rs.RenderStepped:Connect(function(dt)
 end)
 ```
 ```
-> ./LibreboxPlayer.exe examples/part_example.lua
+> ./LunarApp.exe examples/part_example.lua
 ```
 <img src="repo/example3.gif" alt="Demo gif" width="256"/>
 
@@ -111,7 +111,8 @@ In the next release, we will incorporate `UserInputService` and `StarterPlayer`,
 Lunar Engine currently supports Windows, but **can easily be ported anywhere**. The only dependencies are 'raylib' -- and raylib is already cross-platform.
 
 * Windows 7+ (`.exe`)
-  * Standalone executable (LibreboxPlayer.exe)
+  * Standalone executable (LunarApp.exe)
+* Linux support immediate priority
   
 ### Future Support
 
@@ -136,7 +137,7 @@ Lunar Engine is on its way to becoming a fully fledged dev platform -- just like
 In future releases, it could be entirely possible to:
 
 * Create a game within the Lunar Editor (assets and scripts)
-* Deploy a Lunar server (just like a Minecraft server)
+* Deploy a Lunar server (just like a "Minecraft" server)
 * Implement your own monetization
 * Get the full user experience, and professional game development
   * No platform dependency
@@ -150,7 +151,7 @@ And best of all, it is copyright free and open source (Lunar Engine is just an e
 
 I'll add this ASAP. For building dependencies, use the 'build_dependencies.bat' script, and for building the engine, `build_engine.bat`
 For the .exe, you can specify a path either as the first argument (lua script only), or as ``--path`` (script or folder). 
-LibreboxPlayer.exe includes three arguments: ``--no-place``, ``--target-fps``, and ``--path``.
+LunarApp.exe includes three arguments: ``--no-place``, ``--target-fps``, and ``--path``.
 
 ``--no-place``: (FLAG) Does not execute the default place initialization script (this includes the Baseplate.)
 ``--target-fps``: Strict the FPS to a certain value (default monitor refresh rate)
