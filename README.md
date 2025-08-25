@@ -91,7 +91,7 @@ Lunar Engine is currently in demo stage (it implements a limited subset of its p
   - `game:GetService()`
 - Luau script support
   - Highly capable 'Hyperball' task scheduler
-  - `RBXScriptSignal`, Event binding, connections
+  - `RTScriptSignal`, Event binding, connections
   - Coroutines, Scripts, LocalScripts
   - `task.spawn`, `task.wait`, `task.delay`
   - Luau optimization enabled by default
