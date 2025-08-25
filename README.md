@@ -165,7 +165,7 @@ This project uses:
   Copyright (c) 2013-2025 Ramon Santamaria and contributors.
 
 ### Legal Notice
-> Lunar Engine is an independent open-source project. It is not affiliated with or sponsored by any commercial platform. All names and references are for interoperability only. Librebox uses no third-party source code, assets, or proprietary materials.
+> Lunar Engine is an independent open-source project. It is not affiliated with or sponsored by any commercial platform. All names and references are for interoperability only. Lunar Engine uses no third-party source code, assets, or proprietary materials.
 
 ### Contact
 You can send requests or questions at ``librebox.developers@gmail.com``.
