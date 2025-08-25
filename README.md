@@ -154,7 +154,7 @@ For the .exe, you can specify a path either as the first argument (lua script on
 LunarApp.exe includes three arguments: ``--no-place``, ``--target-fps``, and ``--path``.
 
 ``--no-place``: (FLAG) Does not execute the default place initialization script (this includes the Baseplate.)
-``--target-fps``: Strict the FPS to a certain value (default monitor refresh rate)
+``--target-fps``: Restrict the FPS to a certain value (default monitor refresh rate)
 ``--path``: Path to script
 
 ### Licenses
@@ -168,7 +168,7 @@ This project uses:
 ### Legal Notice
 > Lunar Engine is an independent open-source project. It is not affiliated with or sponsored by any commercial platform. All names and references are for interoperability only. Lunar Engine uses no third-party source code, assets, or proprietary materials.
 
-### Contact
+### Contact (TEMPORARY ONLY)
 You can send requests or questions at ``librebox.developers@gmail.com``.
 
 ---
