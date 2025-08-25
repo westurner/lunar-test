@@ -10,7 +10,7 @@
 
 <br/>
 <p>
-  <img src="repo/LibreboxLogo.png" alt="Alt text" width="350"/>
+  <img src="repo/LunarEngine.png" alt="Alt text" width="350"/>
 </p>
 
 ## Open-source Luau 3D engine (API-compatible)
