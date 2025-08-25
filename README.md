@@ -105,7 +105,7 @@ Lunar Engine is currently in demo stage (it implements a limited subset of its p
 
 Of course, this is just a rendering demo. Lunar Engine is extensible and easily supports the additions of new services and features. 
 
-In the next release, we will incorporate `UserInputService` and `StarterPlayer`, turning Librebox into an actual interactive engine.
+In the next release, we will incorporate `UserInputService` and `StarterPlayer`, turning LunarApp into an actual interactive engine.
 
 ### Platforms
 Lunar Engine currently supports Windows, but **can easily be ported anywhere**. The only dependencies are 'raylib' -- and raylib is already cross-platform.
@@ -129,7 +129,7 @@ Right now, Lunar Engine compatibility is limited. This is currently a demo (not 
 And, in the future.
 * Replication support (and Servers)
 
-Librebox is on its way to becoming a fully fledged engine -- just like Godot, or Unity, you can transfer your current Lua skills into Librebox, and create **games you own.**
+Lunar Engine is on its way to becoming a fully fledged dev platform -- just like Godot, or Unity, you can transfer your current Lua skills into Lunar, and create **games you own.**
 
 ### The future of Lunar Engine
 
