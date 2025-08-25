@@ -1,0 +1,20 @@
+{
+  "name": "LunarEngine DevContainer",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": []
+    }
+  },
+  "postCreateCommand": "cd librebox && ./build.sh dependencies && ./build.sh engine",
+  "features": {}
+}
