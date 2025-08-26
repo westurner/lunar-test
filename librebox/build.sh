@@ -39,9 +39,9 @@ function git_clone_with_backup() {
     local target_dir="$3"
     local name="$4"
     if [ "$ALLOW_OVERWRITE_VENDORED_LIBS" != "0" ] && [ -d "$target_dir" ]; then
-        local ts=$(date +%Y%m%d-%H%M%S)
-        mv "$target_dir" "${target_dir}.bak.$ts"
-        echo "Moved existing $name to ${target_dir}.bak.$ts"
+        _timestamp=$(date +%Y%m%d-%H%M%S)
+        mv "$target_dir" "${target_dir}.bak.${_timestamp}"
+        echo "Moved existing $name to ${target_dir}.bak.${_timestamp}"
     fi
     if [ ! -d "$target_dir" ]; then
         echo "Cloning $name..."
@@ -57,9 +57,7 @@ function build_dependencies() {
     echo "=========================================================="
     echo "          BUILDING THIRD-PARTY DEPENDENCIES"
     echo "=========================================================="
-
     echo
-
     echo "[1/4] Configuring Luau..."
     echo "     Source: $LUAU_SOURCE_DIR"
     echo "     Build:  $LUAU_BUILD_DIR"
@@ -72,20 +70,22 @@ function build_dependencies() {
 
     cmake "$LUAU_SOURCE_DIR" -G "$CMAKE_GENERATOR" -DCMAKE_INSTALL_PREFIX="$VENDOR_DIR/luau"
     echo
+
     echo "[2/4] Building Luau ($CMAKE_BUILD_TYPE)..."
     cmake --build . --config "$CMAKE_BUILD_TYPE"
     echo
+
     echo "[3/4] Installing Luau to vendor directory..."
     cmake --install . --config "$CMAKE_BUILD_TYPE"
 
     popd
 
-    # Raylib setup
+    echo "[4/4] Building and installing raylib..."
     RAYLIB_SRC_DIR="$VENDOR_DIR/raylib-src"
     RAYLIB_BUILD_DIR="$VENDOR_DIR/raylib-build"
     RAYLIB_INSTALL_DIR="$VENDOR_DIR/raylib"
     git_clone_with_backup "$RAYLIB_GIT_URL" "$RAYLIB_GIT_REF" "$RAYLIB_SRC_DIR" "raylib"
-    echo "[4/4] Building and installing raylib..."
+
     mkdir -p "$RAYLIB_BUILD_DIR"
     pushd "$RAYLIB_BUILD_DIR"
     cmake "$RAYLIB_SRC_DIR" -G "$CMAKE_GENERATOR" -DCMAKE_INSTALL_PREFIX="$RAYLIB_INSTALL_DIR" -DBUILD_EXAMPLES=OFF -DBUILD_GAMES=OFF
@@ -125,7 +125,7 @@ function build_engine() {
     done
 
     echo "=========================================================="
-    echo "                BUILDING LIBREBOX ENGINE"
+    echo "                BUILDING LUNARENGINE"
     echo "=========================================================="
 
     echo
@@ -133,7 +133,7 @@ function build_engine() {
         echo "[1/4] Cleaning build directory only..."
         rm -rf "$_build_dir"
     else
-        echo "[1/4] Skipping clean (because -no-clean was specified)"
+        echo "[1/4] Skipping clean (because --no-clean was specified)"
     fi
 
     echo
@@ -159,7 +159,7 @@ function build_engine() {
 
 
 print_usage() {
-    echo "Usage: $0 [dependencies|engine] [options]"
+    echo "Usage: $0 [dependencies|engine] [--no-clean]"
     exit 1
 }
 function main() {
@@ -194,7 +194,7 @@ function main() {
                 break
                 ;;
             *)
-                echo "ERROR: Unrecognized arg: $1 ($@)" >&2
+                echo "ERROR: Unrecognized arg: $1 ($*)" >&2
                 return 2
                 ;;
         esac
