@@ -1,6 +1,6 @@
-# Librebox Engine (demo)
+# LunarEngine (demo)
 <div style="display:flex; align-items:center; gap:20px; margin:10px 0;">
-  <a href="https://discord.gg/fWY7jcPu" style="text-decoration:none;">
+  <a href="https://discord.gg/N66awhg7" style="text-decoration:none;">
     <img src="https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white&style=for-the-badge" alt="Discord"/>
   </a>
   <a href="https://github.com/librebox-devs/librebox-demo/releases" style="text-decoration:none;">
@@ -10,10 +10,10 @@
 
 <br/>
 <p>
-  <img src="repo/LibreboxLogo.png" alt="Alt text" width="350"/>
+  <img src="repo/LunarEngine.png" alt="Alt text" width="350"/>
 </p>
 
-## An open-source Roblox-compatible game engine
+## Open-source Luau 3D engine (API-compatible)
 
 <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:10px;">
   <img src="repo/example2.gif" alt="Demo gif" width="256"/>
@@ -23,13 +23,11 @@
 </div>
 <img src="repo/example6.gif" alt="Demo gif" width="256"/>
 
-> **NOTE:** Librebox **IS NOT AFFILIATED** WITH Roblox or Roblox Corporation.
+### What is Lunar Engine?
+**LunarEngine** (formerly **Librebox**) is an open-source game engine powered by Luau. It delivers a sandbox-style API and development model inspired by popular sandbox engines, so existing Luau code runs with minimal changes.
 
-### What is Librebox?
-Librebox is an open-source game engine that runs Luau. It aims to replicate the Roblox Public API, allowing Roblox code to run on the Librebox engine.
-
-### Why Librebox?
-Librebox gives developers agency over their games -- from the code to the engine. Create your own immersive games with a familiar interface (and fully own your platform). 
+### Why Lunar?
+Lunar gives developers full agency over their games - from the code to the engine. Build immersive experiences with a familiar interface while maintaining complete ownership of your platform.
 
 ### Example
 
@@ -52,14 +50,13 @@ rs.RenderStepped:Connect(function(dt)
 end)
 ```
 ```
-> ./LibreboxPlayer.exe examples/part_example.lua
+> ./LunarApp.exe examples/part_example.lua
 ```
 <img src="repo/example3.gif" alt="Demo gif" width="256"/>
-The snippet is fully compatible.
 
 ### Compatibility
 
-Librebox is currently in demo stage (it implements a limited subset of the Roblox API), but here is what is supported:
+Lunar Engine is currently in demo stage (it implements a limited subset of its planned API), but here is what is supported:
 
 - Basic scene rendering
   - Lighting, shadows, ambient, skybox
@@ -94,33 +91,32 @@ Librebox is currently in demo stage (it implements a limited subset of the Roblo
   - `game:GetService()`
 - Luau script support
   - Highly capable 'Hyperball' task scheduler
-  - `RBXScriptSignal`, Event binding, connections
+  - `RTScriptSignal`, Event binding, connections
   - Coroutines, Scripts, LocalScripts
   - `task.spawn`, `task.wait`, `task.delay`
   - Luau optimization enabled by default
 - Window handling and fullscreen optimization
 ---
 
-**NOTE:** Librebox **DOES NOT** use any Roblox source code or assets. It simply replicates the environment used to run games. We will provide open assets in the future.
-
 ### Download
 [Download releases here.](https://github.com/librebox-devs/librebox-demo/releases)
 
 ### To Be Added
 
-Of course, this is just a rendering demo. Librebox is extensible and easily supports the additions of new services and features. 
+Of course, this is just a rendering demo. Lunar Engine is extensible and easily supports the additions of new services and features. 
 
-In the next release, we will incorporate `UserInputService` and `StarterPlayer`, turning Librebox into an actual interactive engine.
+In the next release, we will incorporate `UserInputService` and `StarterPlayer`, turning LunarApp into an actual interactive engine.
 
 ### Platforms
-Librebox currently supports Windows, but **can easily be ported anywhere**. The only dependencies are 'raylib' -- and raylib is already cross-platform.
+Lunar Engine currently supports Windows, but **can easily be ported anywhere**. The only dependencies are 'raylib' -- and raylib is already cross-platform.
 
 * Windows 7+ (`.exe`)
-  * Standalone executable (LibreboxPlayer.exe)
+  * Standalone executable (LunarApp.exe)
+* Linux support immediate priority
   
 ### Future Support
 
-Right now, Librebox compatibility is limited. This is currently a demo (not even a release!). In future releases, you can expect the following:
+Right now, Lunar Engine compatibility is limited. This is currently a demo (not even a release!). In future releases, you can expect the following:
 
 * Physics
   * Collision events, aspects
@@ -134,31 +130,31 @@ Right now, Librebox compatibility is limited. This is currently a demo (not even
 And, in the future.
 * Replication support (and Servers)
 
-Librebox is on its way to becoming a fully fledged engine -- just like Godot, or Unity, you can transfer your current Lua skills into Librebox, and create **games you own.**
+Lunar Engine is on its way to becoming a fully fledged dev platform -- just like Godot, or Unity, you can transfer your current Lua skills into Lunar, and create **games you own.**
 
-### The future of Librebox
+### The future of Lunar Engine
 
 In future releases, it could be entirely possible to:
 
-* Create a game within the Librebox Editor (assets and scripts)
-* Deploy a Librebox server (just like a Minecraft server)
+* Create a game within the Lunar Editor (assets and scripts)
+* Deploy a Lunar server (just like a "Minecraft" server)
 * Implement your own monetization
 * Get the full user experience, and professional game development
   * No platform dependency
 * Use your own APIs or rewrite the source code
 
-This is entirely feasible, and, in fact, a good point for the existence of Librebox. However, what we'd like to implement first is full client compatiblity (proper rendering, APIs). Then, this makes it easier to move on to servers.
+This is entirely feasible, and, in fact, a good point for the existence of Lunar Engine. However, what we'd like to implement first is full client compatiblity (proper rendering, APIs). Then, this makes it easier to move on to servers.
 
-And best of all, it is copyright free and open source (Librebox is just an environment.) 
+And best of all, it is copyright free and open source (Lunar Engine is just an environment.) 
 
 ### Usage and Documentation
 
 I'll add this ASAP. For building dependencies, use the 'build_dependencies.bat' script, and for building the engine, `build_engine.bat`
 For the .exe, you can specify a path either as the first argument (lua script only), or as ``--path`` (script or folder). 
-LibreboxPlayer.exe includes three arguments: ``--no-place``, ``--target-fps``, and ``--path``.
+LunarApp.exe includes three arguments: ``--no-place``, ``--target-fps``, and ``--path``.
 
 ``--no-place``: (FLAG) Does not execute the default place initialization script (this includes the Baseplate.)
-``--target-fps``: Strict the FPS to a certain value (default monitor refresh rate)
+``--target-fps``: Restrict the FPS to a certain value (default monitor refresh rate)
 ``--path``: Path to script
 
 ### Licenses
@@ -170,10 +166,10 @@ This project uses:
   Copyright (c) 2013-2025 Ramon Santamaria and contributors.
 
 ### Legal Notice
-> Librebox is an independent open source project. It is not affiliated with, endorsed by, or sponsored by Roblox Corporation. “Roblox” and “Roblox Corporation” are trademarks of Roblox Corporation. References to the Roblox Public API and compatibility are for interoperability only. Librebox uses no Roblox source code, assets, or other proprietary materials.
+> Lunar Engine is an independent open-source project. It is not affiliated with or sponsored by any commercial platform. All names and references are for interoperability only. Lunar Engine uses no third-party source code, assets, or proprietary materials.
 
-### Contact
+### Contact (TEMPORARY ONLY)
 You can send requests or questions at ``librebox.developers@gmail.com``.
 
 ---
-##### "LIBREBOX IS JUST AN ENVIRONMENT"
+##### "LUNARENGINE IS JUST AN ENVIRONMENT"

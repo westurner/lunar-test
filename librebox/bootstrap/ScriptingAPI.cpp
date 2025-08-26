@@ -119,7 +119,7 @@ static int l_signal_wait(lua_State* L){
 static int l_signal_gc(lua_State* L){ auto* s = checkSignal(L,1); if (s) s->~LuaSignalUD(); return 0; }
 
 static int l_signal_tostring(lua_State* L) {
-    lua_pushliteral(L, "RBXScriptSignal");
+    lua_pushliteral(L, "RTScriptSignal");
     return 1;
 }
 

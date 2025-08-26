@@ -68,7 +68,7 @@ static int LoaderMenu(int padding = 38, int gap = 10,
 
         // header bar
         DrawRectangle(0, 0, GetScreenWidth(), headerHeight, WHITE);
-        DrawText("Librebox Engine Demo", padding, headerHeight/2 - 20, 40, BLACK);
+        DrawText("LunarEngine Demo", padding, headerHeight/2 - 20, 40, BLACK);
 
         // instructions
         int instrY = headerHeight + 20;
@@ -91,7 +91,7 @@ static int LoaderMenu(int padding = 38, int gap = 10,
         }
 
         int creditsY = baseY + optionCount * (boxH + gap) + 40;
-        DrawText("Made by Librebox Developers", padding, creditsY, 20, RED);
+        DrawText("Made by LunarEngine Developers", padding, creditsY, 20, RED);
 
         EndDrawing();
 
@@ -139,7 +139,7 @@ static bool Preflight_ValidatePaths() {
 static void Stage_Initialization() {
     LOGI("Stage: Initialization begin");
 
-    InitWindow(1280, 720, "Librebox Player 1.0.0");
+    InitWindow(1280, 720, "LunarEngine 1.0.0");
 
     // setup icons
     Image icon = {
@@ -381,9 +381,9 @@ int main(int argc, char** argv) {
     }
 
     LOGI("-----------------------------");
-    LOGI("Librebox Player (Client)");
+    LOGI("LunarEngine (Client)");
     LOGI("License: MIT license");
-    LOGI("Author: Librebox Developers");
+    LOGI("Author: LunarEngine Developers");
     LOGI("-----------------------------");
 
     Stage_Initialization();

@@ -102,4 +102,4 @@ if(WIN32)
 endif()
 
 # Set final output name
-set_target_properties(librebox PROPERTIES OUTPUT_NAME "LibreboxPlayer")
+set_target_properties(librebox PROPERTIES OUTPUT_NAME "LunarApp")
