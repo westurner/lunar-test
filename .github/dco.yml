@@ -1,0 +1,11 @@
+# Allow the original author to append a follow-up commit that retroactively signs off
+allowRemediationCommits:
+  individual: true
+
+# Also allow a third party (e.g., a maintainer) to sign off on behalf of the author
+# (requires individual: true)
+# thirdParty: true
+
+# If this repo is in an org, require sign-off from members? (false = don’t require)
+require:
+  members: false
