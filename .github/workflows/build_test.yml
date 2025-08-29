@@ -22,8 +22,8 @@ jobs:
 
       - name: Run build (make build)
         run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace lunarengine-devcontainer:ci make build
+          docker run --rm -v ${{ github.workspace }}:/workspace lunarengine-devcontainer:ci make build-all
 
       - name: Run tests (make test)
         run: |
-          docker run --rm -v ${{ github.workspace }}:/workspace lunarengine-devcontainer:ci make test
+          docker run --rm -v ${{ github.workspace }}:/workspace lunarengine-devcontainer:ci make test-list-tests test

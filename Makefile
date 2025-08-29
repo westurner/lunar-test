@@ -109,7 +109,7 @@ container-image-sign:
 
 container-run: run-container
 
-DOCKER=podman
+#DOCKER=docker
 #DOCKER=docker
 #DOCKER=nerdctl
 
