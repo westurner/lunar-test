@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# build.sh: build lunarengine on Linux
+
 set -e
 
 __THIS=$0
@@ -6,8 +9,6 @@ __THIS=$0
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CMAKE_GENERATOR="Ninja"
 CMAKE_BUILD_TYPE="Release"
-CMAKE_TOOLSET=""
-ARCH="x64"
 
 
 # Allow conda-forge environment overrides
