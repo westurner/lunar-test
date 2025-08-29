@@ -81,7 +81,7 @@ function build_dependencies() {
 
     popd
 
-    echo "[4/4] Building and installing raylib..."
+    echo "[4/5] Building and installing raylib..."
     RAYLIB_SRC_DIR="$VENDOR_DIR/raylib-src"
     RAYLIB_BUILD_DIR="$VENDOR_DIR/raylib-build"
     RAYLIB_INSTALL_DIR="$VENDOR_DIR/raylib"
@@ -90,6 +90,21 @@ function build_dependencies() {
     mkdir -p "$RAYLIB_BUILD_DIR"
     pushd "$RAYLIB_BUILD_DIR"
     cmake "$RAYLIB_SRC_DIR" -G "$CMAKE_GENERATOR" -DCMAKE_INSTALL_PREFIX="$RAYLIB_INSTALL_DIR" -DBUILD_EXAMPLES=OFF -DBUILD_GAMES=OFF
+    cmake --build . --config "$CMAKE_BUILD_TYPE"
+    cmake --install . --config "$CMAKE_BUILD_TYPE"
+    popd
+
+    echo
+    echo "[5/5] Building and installing googletest..."
+    GTEST_GIT_URL="https://github.com/google/googletest.git"
+    GTEST_SRC_DIR="$VENDOR_DIR/googletest-src"
+    GTEST_BUILD_DIR="$VENDOR_DIR/googletest-build"
+    GTEST_INSTALL_DIR="$VENDOR_DIR/googletest"
+    git_clone_with_backup "$GTEST_GIT_URL" "" "$GTEST_SRC_DIR" "googletest"
+
+    mkdir -p "$GTEST_BUILD_DIR"
+    pushd "$GTEST_BUILD_DIR"
+    cmake "$GTEST_SRC_DIR" -G "$CMAKE_GENERATOR" -DCMAKE_INSTALL_PREFIX="$GTEST_INSTALL_DIR"
     cmake --build . --config "$CMAKE_BUILD_TYPE"
     cmake --install . --config "$CMAKE_BUILD_TYPE"
     popd
