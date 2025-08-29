@@ -216,6 +216,8 @@ container-run-build: build-in-container
 container-run-test:
 	$(MAKE) run-container DOCKER_CMD="make test-all"
 
+test-in-container: container-run-test
+
 
 build-all:
 	./librebox/build.sh all
