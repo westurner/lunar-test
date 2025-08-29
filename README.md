@@ -164,6 +164,8 @@ This project uses:
   Copyright (c) 2025 Roblox Corporation.  
 - raylib, licensed under the zlib/libpng License.  
   Copyright (c) 2013-2025 Ramon Santamaria and contributors.
+- googletest, licensed under the BSD 3-Clause License.
+  Copyright (c) 2008 Google.
 
 ### Legal Notice
 > Lunar Engine is an independent open-source project. It is not affiliated with or sponsored by any commercial platform. All names and references are for interoperability only. Lunar Engine uses no third-party source code, assets, or proprietary materials.
