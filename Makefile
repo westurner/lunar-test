@@ -10,44 +10,95 @@ CONTEXT ?= .
 # Set default container engine (can override with DOCKER=podman)
 DOCKER ?= docker
 
-.PHONY: default help container-image-build container-image-sign run-container run-cmake-native run-cmake-container setup-deps-in-container
+
+.PHONY: \
+  default help help-test help-test-list \
+  build build-in-container build-native build-engine build-engine-no-clean build-dependencies \
+  container-image-build container-image-sign container-run container-run-build container-run-build-all container-run-build-dependencies container-run-build-engine container-run-cmake \
+  run run-lunarengine \
+  test test-all test-debug test-list-tests test-app
 
 default: help
 
 help:
 	@echo "### lunarengine Makefile"
-	@echo "Vars"
-	@echo "  DOCKER=docker"
+	@echo "## Variables and Usage"
+	@echo "  DOCKER=docker  # (default)"
 	@echo "  DOCKER=podman"
+	@echo "  make build-in-container DOCKER=podman   # Use podman for container builds"
 	@echo ""
-	@echo "  make build-in-container DOCKER=podman"
+	@echo "## Build, Test, and Run Tasks with and without containers"
+	@echo "  make build                   # Build 'build.sh'     (in container)"
+	@echo "  make build-in-container      # Build 'build.sh all' (in container)"
+	@echo "  make build-all               # Build 'build.sh all' (native)"
+	@echo "  make build-dependencies      # Build 'build.sh dependencies' only (native)"
+	@echo "  make build-engine            # Build 'build.sh engine' only (native)"
+	@echo "  make build-cmake-native      # Build 'cmake' (native)"
 	@echo ""
-	@echo "Available tasks"
+	@echo "  make container-image-build   # Build devcontainer image from Dockerfile ['docker build']"
+	@echo "  make container-image-sign    # Sign the tagged image ['docker trust sign']"
 	@echo ""
-	@echo "  make build"
-	@echo "  make build-in-container"
+	@echo "  make container-run           # Run /bin/bash      (in container)"
+	@echo "  make container-run-build     # Run 'build.sh'     (in container)"
+	@echo "  make container-run-build-all # Run 'build.sh all' (in container)"
+	@echo "  make container-run-build-dependencies # Run 'build.sh dependencies' (in container)"
+	@echo "  make container-run-build-engine       # Run 'build.sh engine' (in container)"
+	@echo "  make container-run-cmake     # Run cmake in container (using $(DOCKER))"
+	@echo "  make run-container           # Run /bin/bash      (in container)
 	@echo ""
-	@echo "  make container-image-build	- Build the devcontainer image from Dockerfile"
-	@echo "  make container-image-sign	- Sign the tagged image (docker trust sign)"
-	@echo "  make container-run			- Run the container interactively with workspace mounted"
-	@echo "  make container-run-cmake   - Run cmake inside the container (using $(DOCKER))"
-	@echo "  make run-container		    - Run the container interactively with workspace mounted"
-	@echo "  make run-cmake-container   - Run cmake inside the container (using $(DOCKER))"
-	@echo "  make run-cmake-native	    - Run cmake natively on host without containers"
-	@echo "  make help				    - Show this help message"
-	@echo "  make setup-deps-in-container - Run dependency setup script (build.sh dependencies) inside the container"
+	@echo "  make run                    # Run the main LunarEngine app"
+	@echo "  make run-in-container       # Run the main LunarEngine app (container)"
+	@echo "  make run-container           # Run /bin/bash      (in container)
+	@echo ""
+	@echo "  make test                   # Run all tests (default: test-all)"
+	@echo "  make test-all               # Run all tests with gtest"
+	@echo "  make test-debug             # Run tests with debug options"
+	@echo "  make test-list-tests        # List all available tests"
+	@echo ""
+	@echo "## Help tasks"
+	@echo "  make help                   # Show this help message"
+	@echo "  make help-test              # Show test help and options"
+	@echo ""
 
-# Run dependency setup script inside the container
-setup-deps-in-container:
-	$(DOCKER) run --rm -it \
-		-v $(CURDIR):/workspace \
+
+container-run-build-all:
+	# Run `build.sh all` inside the container
+	# (Note that this will be deleted if DOCKER_RM=--rm as is the default)
+	$(DOCKER) run ${DOCKER_RM} -it \
+		$(DOCKER_RUN_OPTS) \
 		--name $(IMAGE_NAME)-setup-deps \
+		$(IMAGE_NAME):$(TAG) bash -c 'cd librebox && ./build.sh all'
+
+container-run-build-dependencies:
+	# Run `build.sh dependencies` inside the container
+	# (Note that this will be deleted if DOCKER_RM=--rm as is the default)
+	$(DOCKER) run ${DOCKER_RM} -it \
+		$(DOCKER_RUN_OPTS) \
+		--name $(IMAGE_NAME)-build-dependencies \
 		$(IMAGE_NAME):$(TAG) bash -c 'cd librebox && ./build.sh dependencies'
+
+container-run-build-engine:
+	# Run `build.sh engine` inside the container
+	# (Note that this will be deleted if DOCKER_RM=--rm as is the default)
+	$(DOCKER) run ${DOCKER_RM} -it \
+		$(DOCKER_RUN_OPTS) \
+		--name $(IMAGE_NAME)-build-engine \
+		$(IMAGE_NAME):$(TAG) bash -c 'cd librebox && ./build.sh engine'
+
+container-run-build-engine-no-clean:
+	# Run `build.sh engine --no-clean` inside the container
+	# (Note that this will be deleted if DOCKER_RM=--rm as is the default)
+	$(DOCKER) run ${DOCKER_RM} -it \
+		$(DOCKER_RUN_OPTS) \
+		--name $(IMAGE_NAME)-build-engine-no-clean \
+		$(IMAGE_NAME):$(TAG) bash -c 'cd librebox && ./build.sh engine --no-clean'
 
 
 # Run cmake natively on host
-run-cmake-native:
+build-cmake:
 	cmake -S librebox -B librebox/build
+
+build-native: build-cmake
 
 
 container-image-build:
@@ -125,7 +176,8 @@ DOCKER_BUILD_OPTS= \
 	--user="${DOCKER_USER}" \
 	--security-opt="${DOCKER_SECURITY_OPT_LABEL}" \
 	${PODMAN_ROOTLESS_OPTS} \
-	$(DOCKER_OPTS)
+	${DOCKER_VOLUMES} \
+	${DOCKER_OPTS}
 
 DOCKER_RUN_OPTS= \
 	--user="${DOCKER_USER}" \
@@ -144,26 +196,25 @@ DOCKER_RUN_OPTS= \
 	-v ${XAUTHORITY}:${XAUTHORITY}:ro \
 	$(DOCKER_OPTS) 
 
-#-v $(CURDIR):/workspace \
 
 run-container:
-	$(DOCKER) run --rm -it \
+	$(DOCKER) run ${DOCKER_RM} -it \
 		${DOCKER_RUN_OPTS} \
 		--name ${IMAGE_NAME}-container \
 		${IMAGE_NAME}:${TAG} ${DOCKER_CMD}
 
 # Run cmake inside the container
-run-cmake-container:
-	$(DOCKER) run --rm -it \
-		${DOCKER_BUILD_OPTS} \
-		--name $(IMAGE_NAME)-cmake \
-		$(IMAGE_NAME):$(TAG) \
-		/workspace/librebox/build.sh all
-		@#cmake -S /workspace/librebox -B /workspace/librebox/build
+#cmake -S /workspace/librebox -B /workspace/librebox/build
 
 build-in-container:
 	$(MAKE) container-image-build
-	$(MAKE) run-cmake-container
+	$(MAKE) container-run-build-all
+
+container-run-build: build-in-container
+
+
+build-all:
+	./librebox/build.sh all
 
 build-dependencies:
 	./librebox/build.sh dependencies
@@ -171,14 +222,82 @@ build-dependencies:
 build-engine:
 	./librebox/build.sh engine
 
+build-engine-no-clean:
+	./librebox/build.sh engine --no-clean
+
+
+# default build task:
 build:
-	$(MAKE) run-cmake-native
+	$(MAKE) build-in-container
+
+
+APP_BIN_NAME ?= LunarApp
+APP_BIN_PATH ?= ./librebox/dist/${APP_BIN_NAME}
 
 run-lunarengine:
-	./librebox/dist/LunarApp
+	${APP_BIN_PATH}
 
 run: run-lunarengine
 
-# TODO: tests
-test:
-	./librebox/dist/LunarApp
+
+run-container-app:
+	$(DOCKER) run ${DOCKER_RM} -it \
+		${DOCKER_RUN_OPTS} \
+		--name ${IMAGE_NAME}-container \
+		${IMAGE_NAME}:${TAG} ${APP_BIN_PATH}
+
+run-in-container: run-container-app
+
+# TODO: add more tests
+test-app:
+	${APP_BIN_PATH} --version
+	${APP_BIN_PATH} --path ./examples/helloworld.lua
+	${APP_BIN_PATH}
+	${APP_BIN_PATH} --help
+	${APP_BIN_PATH} --version
+
+
+## tests with gtest/ctest googletest
+
+TEST_BIN_NAME ?= lunarengine_tests
+TEST_BIN ?= ./librebox/build/tests/${TEST_BIN_NAME}
+
+GTEST_OPTIONS1=--gtest_brief=0 --gtest_output=json:testresults.json
+#GTEST_OPTIONS2 ?= --gtest_break_on_failure
+GTEST_OPTIONS2 ?= --gtest_throw_on_failure
+
+
+help-test:
+	@echo -e "\n## Test help\n"
+	${TEST_BIN} --help
+	@echo "make test-list-tasks"
+	${TEST_BIN} --gtest_list_tests
+	@echo ''
+
+test: test-all
+
+test-all:
+	@echo "## Starting TEST RUN ..."
+	@echo ""
+	${TEST_BIN} ${GTEST_OPTIONS1}
+	@echo ""
+	@echo "## TEST RUN COMPLETE"
+	@echo ""
+
+test-debug:
+	@echo "## Starting TEST RUN ..."
+	@echo ""
+	${TEST_BIN} ${GTEST_OPTIONS1} ${GTEST_OPTIONS2}
+	@echo ""
+	@echo "## TEST RUN COMPLETE"
+	@echo ""
+
+# `ctest` is the googletest test runner
+# which is an option instead of ${TEST_BIN_NAME}
+
+# CMAKE_BUILD_TYPE ?= Release
+# test-ctest:
+# 	ctest --output-on-failure --build-config "${CMAKE_BUILD_TYPE}"
+
+test-list-tests:
+	${TEST_BIN} --gtest_list_tests

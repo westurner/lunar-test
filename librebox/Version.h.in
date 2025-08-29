@@ -1,0 +1,2 @@
+#pragma once
+#define LUNARENGINE_VERSION "@LUNARENGINE_VERSION@-@GIT_HASH@"

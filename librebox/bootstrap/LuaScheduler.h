@@ -40,8 +40,11 @@ public:
 
     // Script waits
     void SetWaitAbs(BaseScript* s, double wakeTimeAbs);
-    void SetWaitNextFrame(BaseScript* s);
     void SetWaitEvent(BaseScript* s);
+    void SetWaitNextFrame(BaseScript* s);
+
+    // Error reporting
+    // (see below for inline definitions)
 
     // Task API (thread-based, not tied to BaseScript)
     void ScheduleTaskNextFrame(lua_State* co, int registryRef, int initialArgc);
@@ -67,6 +70,11 @@ public:
 
     // Query whether a task coroutine is currently in the scheduler's active/tasks map.
     bool IsTaskActive(lua_State* co) const { return tasks.find(co) != tasks.end(); }
+
+    // Error reporting
+    const std::string& GetLastError() const { return lastError; }
+    const std::string& GetLastTraceback() const { return lastTraceback; }
+    bool HasError() const { return !lastError.empty(); }
 
 private:
     struct ScriptState {
@@ -145,4 +153,8 @@ private:
         std::vector<lua_State*>,
         TaskTimeCmp
     > sleepingTasks;
+
+    // Error/traceback storage
+    std::string lastError;
+    std::string lastTraceback;
 };

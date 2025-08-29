@@ -1,11 +1,14 @@
 #pragma once
 #include <cstdarg>
+#include <string>
 #include <raylib.h> // expose log level constants
 
 // Forward declaration for raylib TraceLog
 extern "C" void TraceLog(int logLevel, const char* text, ...);
 
 namespace logging {
+    extern int gLogLevel;
+    void SetLogLevel(const std::string& level);
     void VLog(int level, const char* fmt, va_list ap);
     void Log(int level, const char* fmt, ...);
 }
